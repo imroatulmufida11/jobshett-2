@@ -1,5 +1,4 @@
 <?php
-
 // Fungsi untuk menampilkan jadwal piket berdasarkan hari
 function tampilkanJadwal($hari) {
     switch ($hari) {
@@ -38,11 +37,12 @@ echo "<h2>Jadwal piket untuk hari ini ($hari_ini):</h2>";
 $jadwal_hari_ini = tampilkanJadwal($hari_ini);
 
 if (!empty($jadwal_hari_ini)) {
-    echo "<ul>";
+    echo "<table border='1'>";
+    echo "<tr><th>No</th><th>Nama</th></tr>";
     for ($i = 0; $i < count($jadwal_hari_ini); $i++) {
-        echo "<li>$jadwal_hari_ini[$i]</li>";
+        echo "<tr><td>" . ($i+1) . "</td><td>$jadwal_hari_ini[$i]</td></tr>";
     }
-    echo "</ul>";
+    echo "</table>";
 }
 
 ?>
@@ -66,17 +66,16 @@ if (!empty($jadwal_hari_ini)) {
             color: #333;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
         }
 
-        li {
-            background-color: #fff;
-            margin-bottom: 5px;
+        th, td {
             padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
 
         form {
@@ -106,8 +105,6 @@ if (!empty($jadwal_hari_ini)) {
             background-color: #45a049;
         }
     </style>
-
-
 </head>
 <body>
 
